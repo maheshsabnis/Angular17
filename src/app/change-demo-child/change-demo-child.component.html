@@ -1,0 +1,14 @@
+<p>change-demo-child component!</p>
+
+<h3>{{message}}</h3>
+
+<h4>{{name()}}</h4>
+
+<button (click)="name.set('Mahesh Ramesh Sabnis')">Update Signal Received from the Parent</button>
+
+<div class="alert alert-info">
+    Receiving the nameInput from the parent using 'input' function in Angular 17.1
+    <br/>
+    {{nameInput()}}
+</div>
+<button (click)="updateNameInputReceivedFromParentInChild()">Update Received 'namedInput' from parent in child</button>

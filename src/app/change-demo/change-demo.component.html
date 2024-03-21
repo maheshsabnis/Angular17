@@ -1,0 +1,34 @@
+<h1>Current value of the counter {{counter}}</h1>
+
+<button (click)="increment()">Increment</button>
+
+<hr/>
+
+<input type="text" [(ngModel)]="counter">
+<hr>
+<h1>Current value of the counter1 {{counter1()}}</h1>
+<hr/>
+
+<h3>
+    In Parent Value of Signam 'name': {{name()}}
+</h3>
+
+<button (click)="updateSignalInParent()">Update the Signal in the Parent</button>
+
+<div class="alert alert-danger">
+    nameInput Signal in Angular 17.1 'input' function
+    <br/>
+    <strong>{{nameInput()}}</strong>
+</div>
+
+
+<h3>PAssing Signal to Child</h3>
+
+
+
+<app-change-demo-child [message]="counter.toString()"
+ [name]="name" [nameInput]="nameInput()"
+></app-change-demo-child>
+
+
+

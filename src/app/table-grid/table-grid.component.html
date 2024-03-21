@@ -1,0 +1,23 @@
+@if(DataSource.length > 0 || DataSource !== null) {
+    <table class="table table-bordrered table-striped">
+        <thead>
+            <tr>
+                @for (column of columns; track $index) {
+                    <th>{{column}}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <!-- as keyof typeof emp -->
+            @for (record of DataSource; track $index) {
+                <tr (click)="rowClicked(record)">
+                    @for (column of columns; track $index) {
+                        <td>{{ record[column] }}</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}@else {
+    <div class="container">No Data to Show</div>
+}

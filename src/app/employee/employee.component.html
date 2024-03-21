@@ -1,0 +1,30 @@
+<h1>Employee Component</h1>
+
+@if(employees.length > 0){
+    <table class="table table-bordrered table-striped">
+        <thead>
+           
+                <tr>
+                @for (column of columns; track $index) {
+                    <th>{{column}}</th>
+                }
+                </tr>
+           
+        </thead>
+        <tbody>
+            <!-- as keyof typeof emp -->
+            @for (emp of employees; track $index) {
+                <tr>
+                    @for (column of columns; track $index) {
+                        <td>{{ emp[column] }}</td>
+                    }
+                </tr>
+            }
+        
+            
+        </tbody>
+    </table>
+}
+@else {
+    <div>Nothing to show</div>
+} 

@@ -1,0 +1,65 @@
+<h1>Using Angular Signals and Computed</h1>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>
+            Select Vehicle
+        </td>
+        <td>
+            Select Quentity
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select class="form-control" 
+           
+            (change)="onSelectedVehicle($any($event.target).value)">
+            >
+                <option>Select the Vehicle:</option>
+                @for (vehicle of vehicles(); track vehicle.id) {
+                    <option value="{{vehicle.id}}">{{vehicle.name}}</option>
+                }
+            </select>
+        </td>
+        <td>
+            <select class="form-control" [ngModel]="quantity()" 
+            (change)="onSelectedQuantity($any($event.target).value)">
+            <option>Select the Quantity:</option>
+                @for (quantity of availableQuantity(); track $index) {
+                    <option value="{{quantity}}">{{quantity}}</option>
+                }
+            </select>
+        </td>
+    </tr>
+</tbody>
+</table>
+<br/>
+<div class="alert alert-warning">
+  <strong>  Selected Quantity: {{quantity()}}
+    <br/>
+    Selected Vehicle: {{selectedVehicle().name}}
+    <br/>
+    Total Quantity = {{exShowRoomPrice()}} </strong>
+</div>
+<button (click)="savePurchase()">Save</button>
+<h3>The Purchased Vehicles</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+            <th>total price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (veh of purchasedVehicles(); track $index) {
+            <tr>
+                <td>{{veh.id}}</td>
+                <td>{{veh.name}}</td>
+                <td>{{veh.price}}</td>
+                <td>{{veh.totalPrice}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
